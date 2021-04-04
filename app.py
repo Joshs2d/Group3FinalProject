@@ -11,17 +11,18 @@ app = Flask(__name__, template_folder='templates')
 #app.config['MYSQL_DATABASE'] = 'heroku_86594902d2459c3'
 
 
-db = mysql.connector.connect(
 
+
+db = mysql.connector.connect(
     host = "us-cdbr-east-03.cleardb.com",
     user = "b2838d74df3cc6",
     password = "1679be15",
     database = "heroku_86594902d2459c3"
-
 )
 
 cursor = db.cursor()
 
+    
 
 
 
@@ -33,8 +34,10 @@ def index():
 @app.route('/', methods = ['POST', 'GET'])
 def post():
 
-    if request.method == 'POST':
+    db.reconnect(attempts = 1, delay = 0)
 
+    if request.method == 'POST':
+        
         new_recipe = Users(0, '')
         cursor.execute("SELECT * FROM Recipes;")
         rows = len(cursor.fetchall()) + 1
@@ -51,7 +54,6 @@ def post():
             return 'There was an issue adding a new recipe.'
 
     else:
-        
         return render_template('index.html')
 
 
