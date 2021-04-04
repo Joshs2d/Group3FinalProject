@@ -1,8 +1,8 @@
 import mysql.connector
 from flask import Flask, render_template, url_for, request, redirect
-from flask_mysql_connector import MySQL
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+#from flask_mysql_connector import MySQL
+#from flask_sqlalchemy import SQLAlchemy
+#from sqlalchemy import create_engine
 from Users import Users
 
 
