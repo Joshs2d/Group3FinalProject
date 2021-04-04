@@ -2,11 +2,10 @@ import mysql.connector
 from flask import Flask, render_template, url_for, request, redirect
 #from flask_mysql_connector import MySQL
 #from flask_sqlalchemy import SQLAlchemy
-#from sqlalchemy import create_engine
-from Users import Users
+from models.Users import Users
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 #app.config['MYSQL_USER'] = 'b2838d74df3cc6'
 #app.config['MYSQL_PASSWORD'] = "1679be15" 
 #app.config['MYSQL_DATABASE'] = 'heroku_86594902d2459c3'
