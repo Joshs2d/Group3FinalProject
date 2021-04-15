@@ -1,5 +1,3 @@
-# Group3FinalProject
-Final project for MIS 407.
+# Group3FinalProject - Zhibo Liu's Branch
 
-This is a test to make sure that the repo is working.
-this shouldnt work.
+Website at: https://mis407g3.herokuapp.com

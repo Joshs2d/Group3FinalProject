@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Recipes</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Recipes:</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">Feel free to look around!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Recipe Name</th>
+            <th>Added</th>
+        </tr>
+    </table>
+    {% endif %}
+
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Post Recipe">
+        </form>
+    </div>
+</div>
+{% endblock %}
