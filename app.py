@@ -1,4 +1,17 @@
 from flask import Flask, render_template, url_for, request, redirect
+<<<<<<< Updated upstream
+=======
+#from flask_mysql_connector import MySQL
+#from flask_sqlalchemy import SQLAlchemy
+from models.Users import Users
+
+ 
+app = Flask(__name__, template_folder='templates')
+#app.config['MYSQL_USER'] = 'b2838d74df3cc6'
+#app.config['MYSQL_PASSWORD'] = "1679be15" 
+#app.config['MYSQL_DATABASE'] = 'heroku_86594902d2459c3'
+
+>>>>>>> Stashed changes
 
 from sqlalchemy import DDL, event
 from sqlalchemy import Column, Integer, String
