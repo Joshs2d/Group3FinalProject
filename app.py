@@ -20,7 +20,13 @@ session = Session()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+
+    return render_template('signup.html')
+
+@app.route('/login')
+def page_login():
+
+    return render_template('login.html')
 
 
 
