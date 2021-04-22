@@ -13,6 +13,7 @@ class Users(Base):
     Lname = Column(String(20))
     Phone = Column(String(20))
     Email = Column(String(20))
+    UPassword = Column(String(20))
 
 
     def getID():
@@ -35,7 +36,12 @@ class Users(Base):
         return self.Email
 
 
+    def getPassword():
+
+        return self.UPassword
+
+
     def __repr__(self):
          
         return "<User(Fname='%s', Lname='%s', Phone='%s', Email='%s')>" % (
-                             self.Fname, self.Lname, self.Phone, self.Email)
+                             self.Fname, self.Lname, self.Phone, self.Email, self.UPassword)
