@@ -50,6 +50,8 @@ def login():
     PW = request.form['PW']
     local_instance = [EM, PW]
 
+    print("Local Instance: ", local_instance)
+
     if request.method == 'POST':
 
         server_instance = getTableContent('users')
@@ -126,15 +128,12 @@ def validate(server_instance, local_instance):
 
     for i in server_instance:
 
+        print("Server Instance", i)
+
         #Email&Password validation:
         if i[4] == local_instance[0] and i[5] == local_instance[1]:
 
             return True
-
-        else:
-
-            return False
-
 
 
 
