@@ -1,6 +1,5 @@
 body, html {
     margin: 0;
-    background: url(/static/IMGs/bg.jpg);
     font-family: sans-serif;
 }
 
@@ -33,4 +32,12 @@ td {
 
 #content {
     width: 70%;
+}
+
+.avatar2{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -20%;
+    left: calc(50% - 50px);
 }
