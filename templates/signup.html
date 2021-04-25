@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>SIGN UP</title>
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/sh_signup.css">
+<body>
+  <div class="signupbox">
+      <h1>Join Us Now</h1>
+      <form action="/acfn_signup" method="POST">
+        <p>First Name</p>
+        <input type="text" name="FN" placeholder="Enter First Name">
+        <p>Last Name</p>
+        <input type="text" name="LN" placeholder="Enter Last Name">
+        <p>Email Address</p>
+        <input type="text" name="EM" placeholder="Enter Email">
+        <p>Phone Number</p>
+        <input type="text" name="PH" placeholder="Enter Phone">
+        <p>Password</p>
+        <input type="password" name="PW" placeholder="Enter Password">
+        <p>Confirm Password</p>
+        <input type="password" name="CPW" placeholder="Re-Enter Password">
+        <input type="submit" name="SBT" value="Sign Me Up">
+      </form>
+  </div>
+</body>
+{% endblock %}

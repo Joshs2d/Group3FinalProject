@@ -33,3 +33,11 @@ td {
 #content {
     width: 70%;
 }
+
+.avatar2{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -20%;
+    left: calc(50% - 50px);
+}

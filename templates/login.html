@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>LOGIN</title>
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/sh_login.css">
+<body>
+  <div class="loginbox">
+    <img src="/static/IMGs/avatar.png" class="avatar">
+      <h1>Login Here</h1>
+      <form action="/acfn_login" method="POST">
+        <p>Email Address</p>
+        <input type="text" name="EM" placeholder="Enter Email">
+        <p>Password</p>
+        <input type="password" name="PW" placeholder="Enter Password">
+        <input type="submit" name="SBT" value="Login">
+        <a href = "#">Forgot your password?</a><br>
+        <a href = "{{ url_for('page_signup') }}">Don't have an accoutn? Create Now!</a>
+      </form>
+  </div>
+</body>
+{% endblock %}

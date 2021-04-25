@@ -1,17 +1,47 @@
-class Users():
-    id = 0
-    name = ""
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import declarative_base
 
-    def __init__(self, id, name):
-        self.id = id
-        self.name = name 
+
+Base = declarative_base()
+
+class Users(Base):
+    
+    __tablename__ = 'users'
+
+    UID = Column(Integer, primary_key=True)
+    Fname = Column(String(20))
+    Lname = Column(String(20))
+    Phone = Column(String(20))
+    Email = Column(String(20))
+    UPassword = Column(String(20))
 
 
     def getID():
-        return id
+        
+        return self.UID
         
 
     def getName():
-        return name
+
+        return self.Fname + ' ' + self.Lname
 
 
+    def getPhone():
+
+        return self.Phone
+
+
+    def getEmail():
+
+        return self.Email
+
+
+    def getPassword():
+
+        return self.UPassword
+
+
+    def __repr__(self):
+         
+        return "<User(Fname='%s', Lname='%s', Phone='%s', Email='%s')>" % (
+                             self.Fname, self.Lname, self.Phone, self.Email, self.UPassword)
