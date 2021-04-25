@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Your Fridge</title>
+{% endblock %}
+
+
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="/static/css/myfridge.css">
+<h1 style = "text-align: center">Your Fridge</h1>
+<button type="button" class="btn btn-outline-primary" style="text-align: center; margin-left: 37%; width: 200px;">Add Item</button>
+<button type="button" class="btn btn-outline-danger" style="text-align: center; margin-left: auto; width: 200px;position:relative">Add Item</button>
+
+<div class = 'table'>
+    <table class="table table-sm", style="border: 3px solid black; text-align:center; width: 1000px; margin:auto; margin-top: 20px">
+        <thead Class = table-secondary>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Food/Ingredient</th>
+            <th scope="col">Add Date</th>
+            <th scope="col">Expiration</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Swiss Cheese</td>
+            <td>4/19/2021</td>
+            <td>5/18/2021</td>
+        </tr>
+        <tr>
+        </tbody>
+    </table>
+</div>
+<p>{{content}}</p>
+{% for x in content: %}
+    <p>{{x}}</p>
+{% endfor %}
+</body>>
+
+
+{% endblock %}
+

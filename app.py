@@ -55,8 +55,9 @@ def page_myFridge():
         return render_template('login.html')
 
     else:
-
-        return render_template('login_fail.html')
+        
+        usersFridge = getTableContent('Users')
+        return render_template('myfridge.html', content = usersFridge, methods = ['GET', 'POST'])
 
 
 
