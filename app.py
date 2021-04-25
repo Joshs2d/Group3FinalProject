@@ -19,9 +19,6 @@ connection = engine.connect()
 
 Session = sessionmaker(bind=engine)
 session = Session()
-
-
-
 @app.route('/')
 def index():
 
@@ -41,7 +38,10 @@ def page_signup():
 
     return render_template('signup.html')
 
-
+@app.route('/fridge', methods = ["POST", "GET"])
+def myFridge():
+    usersFridge = getTableContent('Users')
+    return render_template('myfridge.html', content = usersFridge, methods = ['GET', 'POST'])
 
 @app.route('/acfn_login', methods = ['POST'])
 def login():
