@@ -21,6 +21,8 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
+curr_user = None
+
 
 @app.route('/')
 def index():
@@ -43,28 +45,49 @@ def page_signup():
 
 
 
+@app.route('/myfridge')
+def page_myFridge():
+
+    print("curr_user == None is: ", curr_user == None)
+    
+    if curr_user == None:
+        
+        return render_template('login.html')
+
+    else:
+
+        return render_template('login_fail.html')
+
+
+
 @app.route('/acfn_login', methods = ['POST'])
 def login():
 
+    global curr_user
     EM = request.form['EM']
     PW = request.form['PW']
     local_instance = [EM, PW]
 
-    print("Local Instance: ", local_instance)
+    if(curr_user == None):
 
-    if request.method == 'POST':
+        if request.method == 'POST':
 
-        server_instance = getTableContent('users')
-        
-        if validate(server_instance, local_instance):
+            server_instance = getTableContent('users')
+            
+            if validate(server_instance, local_instance):
 
-            print("Login Successful")
-            return render_template('index.html')
-        
-        else:
+                print("Login Successful")
+                curr_user = Users()
+                return render_template('index.html')
+            
+            else:
 
-            print("Login Failed")
-            return render_template('login_fail.html')
+                print("Login Failed")
+                return render_template('login_fail.html')
+
+    else:
+
+        return render_template('index.html')
 
 
 
