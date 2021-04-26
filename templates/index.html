@@ -1,28 +1,70 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Recipes</title>
+<head>
+    <title>My Fridge</title>
+</head>
 {% endblock %}
 
-{% block body %}
-<div class="content">
-    <h1 style="text-align: center">Recipes:</h1>
-    {% if tasks|length < 1 %}
-    <h4 style="text-align: center">Feel free to look around!</h4>
-    {% else %}
-    <table>
-        <tr>
-            <th>Recipe Name</th>
-            <th>Added</th>
-        </tr>
-    </table>
-    {% endif %}
 
-    <div class="form">
-        <form action="/" method="POST">
-            <input type="text" name="content" id="content">
-            <input type="submit" value="Post Recipe">
-        </form>
+{% block body %}
+<body>
+    <link rel="stylesheet" type="text/css" href="/static/css/sh_myfridge.css">
+    <h1 style = "text-align: center">Recipe Feed</h1>
+    <button id="AI" type="button" class="btn btn-outline-primary" style="text-align: center; margin-left: 37%; width: 200px;">Add Recipe</button>
+    <button id="DI" type="button" class="btn btn-outline-danger" style="text-align: center; margin-left: auto; width: 200px;position:relative">Delete Recipe</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Edit Your Recipe</h1>
+            <br>
+            <div>
+                <label>Ingredients</label>
+                    <input id="Ingre" type="text" name="Ingredients" placeholder="Enter Ingredients">
+                    <button id="addIngre">Add</button> 
+            </div>
+            <br>
+            <form action="/acfn_addRecipe" method="POST">
+                <label>Recipe Name</label>
+                <input id="RecN" type="text" name="RecName" placeholder="Enter Recipe Name">
+                <br>
+                <label>Recipe Instruction</label>
+                <textarea id="RecIns" name="RecIns" placeholder="Enter Instructions"></textarea>
+                <br>
+                <label>Requirements</label>
+                <ul>
+                    <!--to be added-->
+                </ul>
+                <br>
+                <input id="SBT" type="submit" value="Submit">
+            </form>
+        </div>
     </div>
-</div>
+
+    <script>
+        $('#AI').click(function(){
+            
+            var modal = document.getElementById("myModal");
+            var span = document.getElementsByClassName("close")[0];
+
+            modal.style.display = "block";
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+        });
+
+        $('#addIngre').click(function(){
+
+            var item = $('#Ingre').val();
+            /*   
+            $('ul').append('<li name="IngreList">' + item + '</li>');
+            */
+            $('ul').append('<input type="text" name="IngreList" value="' + item + '">');
+        
+        });
+    </script>
+</body>
 {% endblock %}
