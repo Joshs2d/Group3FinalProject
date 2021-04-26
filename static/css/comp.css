@@ -1,7 +1,18 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #8064A2;
+}
+
+.btn {
+    background-color: #8064A2;
+    margin-right: 10px;
 }
 
 .Lfridge{
