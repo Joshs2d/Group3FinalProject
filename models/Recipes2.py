@@ -7,18 +7,18 @@ from models import Base
 Base = declarative_base()
 """
 
-class Recipes(Base):
+class Recipes2(Base):
     
-    __tablename__ = 'recipes'
+    __tablename__ = 'recipes2'
 
     RecID = Column(Integer, primary_key=True)
     RecName = Column(String(20))
     RecDescription = Column(String(5000))
     PersonID = Column(Integer, ForeignKey('users.UID'))
-    IngredientListID = Column(Integer, ForeignKey('ingredientlist.ILID'))
+    IngredientListID = Column(Integer, ForeignKey('ingredientlist2.ILID'))
 
     users = relationship("Users", foreign_keys=[PersonID])
-    Ingredientlist = relationship("Ingredientlist", foreign_keys=[IngredientListID])
+    Ingredientlist2 = relationship("Ingredientlist2", foreign_keys=[IngredientListID])
 
 
     def getID(self):
