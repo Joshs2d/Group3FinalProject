@@ -42,12 +42,10 @@ def index():
     
 
 
-
 @app.route('/login')
 def page_login():
     
     return render_template('login.html')
-
 
 
 @app.route('/signup')
@@ -56,6 +54,15 @@ def page_signup():
     return render_template('signup.html')
 
 
+@app.route('/aboutus')
+def page_aboutus():
+
+    return render_template('aboutus.html')
+
+@app.route('/blog')
+def page_blog():
+
+    return render_template('blog.html')
 
 @app.route('/aboutus')
 def page_aboutus():
