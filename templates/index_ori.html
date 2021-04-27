@@ -9,18 +9,10 @@
 
 {% block body %}
 <body>
-    <link rel="stylesheet" type="text/css" href="/static/css/sh_index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/sh_myfridge.css">
     <h1 style = "text-align: center">Recipe Feed</h1>
     <button id="AI" type="button" class="btn btn-outline-primary" style="text-align: center; margin-left: 37%; width: 200px;">Add Recipe</button>
     <button id="DI" type="button" class="btn btn-outline-danger" style="text-align: center; margin-left: auto; width: 200px;position:relative">Delete Recipe</button>
-
-    <div>
-        <table name="viewer">
-            {% for u in viewer %}
-            <tr value= "{{ u }}"> {{ u }} </tr><br>
-            {% endfor %}
-        </table>
-    </div>
 
     <div id="myModal" class="modal">
         <div class="modal-content">

@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.inspection import inspect
 
+
 from models.Users import Users
 from models.Recipes import Recipes
 from models.Ingredientlist import Ingredientlist
@@ -21,16 +22,12 @@ app = Flask(__name__, template_folder='templates')
 
 
 DB_URL = 'mysql+pymysql://b2838d74df3cc6:1679be15@us-cdbr-east-03.cleardb.com/heroku_86594902d2459c3?'
-engine = create_engine(DB_URL, echo=True, pool_recycle = -1, pool_pre_ping=True)
+engine = create_engine(DB_URL, echo=True, pool_pre_ping=True)
 
 metadata = MetaData()
 connection = engine.connect()
 initialize_sql(engine)
 
-"""
-Session = sessionmaker(bind=engine)
-session = Session()
-"""
 
 curr_user = None
 PK = 0
@@ -38,8 +35,11 @@ PK = 0
 
 @app.route('/')
 def index():
+
+    recipes = getTableContent('recipes2')
+
+    return render_template('index.html', viewer=recipes)
     
-    return render_template('index.html')
 
 
 
@@ -226,6 +226,8 @@ def validate(server_instance, local_instance):
         if i[4] == local_instance[0] and i[5] == local_instance[1]:
 
             return True, server_instance[0]
+
+
 
 
 if __name__ == "__main__":
