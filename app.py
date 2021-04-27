@@ -65,19 +65,6 @@ def page_blog():
 
     return render_template('blog.html')
 
-@app.route('/aboutus')
-def page_aboutus():
-    
-    return render_template('aboutus.html')
-
-
-
-@app.route('/blog')
-def page_blog():
-    
-    return render_template('blog.html')
-
-
 
 @app.route('/myfridge',  methods = ["POST", "GET"])
 def page_myFridge():
