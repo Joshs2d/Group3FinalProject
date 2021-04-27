@@ -33,6 +33,8 @@ curr_user = None
 PK = 0
 
 
+Session = sessionmaker(bind=engine)
+session = Session()
 @app.route('/')
 def index():
 
@@ -53,7 +55,6 @@ def page_signup():
     
     return render_template('signup.html')
 
-
 @app.route('/aboutus')
 def page_aboutus():
 
@@ -78,7 +79,7 @@ def page_blog():
 
 
 
-@app.route('/myfridge')
+@app.route('/myfridge',  methods = ["POST", "GET"])
 def page_myFridge():
 
     print("curr_user == None is: ", curr_user == None)
@@ -91,8 +92,6 @@ def page_myFridge():
 
         usersFridge = getTableContent('Users')
         return render_template('myfridge.html', content = usersFridge, methods = ['GET', 'POST'])
-
-
 
 @app.route('/acfn_login', methods = ['POST'])
 def login():
